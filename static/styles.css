@@ -1,0 +1,73 @@
+:root {
+  color-scheme: light dark;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 1.2rem;
+}
+
+.card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.grid2, .grid4 {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.grid2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+input, button {
+  padding: 0.55rem;
+  border-radius: 8px;
+  border: 1px solid #475569;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover { background: #1d4ed8; }
+
+.hidden { display: none; }
+.muted { opacity: 0.8; font-size: 0.85rem; }
+.status { min-height: 1.4rem; color: #93c5fd; }
+
+.stats {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 0.7rem 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border-bottom: 1px solid #334155;
+  text-align: left;
+  padding: 0.45rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .grid4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

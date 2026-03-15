@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Escrutínio em Tempo Real</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Sistema de Escrutínio e Contagem de Dados</h1>
+
+    <section class="card" id="authCard">
+      <h2>Acesso</h2>
+      <div class="grid2">
+        <input id="username" placeholder="Utilizador" value="operador" />
+        <input id="password" placeholder="Senha" value="oper123" type="password" />
+      </div>
+      <button id="loginBtn">Entrar</button>
+      <p class="muted">Perfis de teste: admin/admin123, supervisor/super123, operador/oper123, viewer/view123</p>
+      <p id="authState" class="status"></p>
+    </section>
+
+    <section class="card hidden" id="submitCard">
+      <h2>Recepção e Validação de Dados</h2>
+      <div class="grid4">
+        <input id="source" placeholder="Fonte/mesa" />
+        <input id="region" placeholder="Região" />
+        <input id="area" placeholder="Área" />
+        <input id="value" placeholder="Valor (0-100)" type="number" />
+      </div>
+      <button id="sendDataBtn">Enviar dado</button>
+      <p id="submitState" class="status"></p>
+    </section>
+
+    <section class="card hidden" id="dashboardCard">
+      <h2>Dashboard (tempo real)</h2>
+      <div class="filters">
+        <input id="regionFilter" placeholder="Filtrar por região" />
+        <button id="refreshBtn">Atualizar</button>
+      </div>
+
+      <div class="stats">
+        <div><strong>Total registos:</strong> <span id="totalRecords">0</span></div>
+        <div><strong>Média:</strong> <span id="avgValue">0</span></div>
+        <div><strong>Última geração:</strong> <span id="generatedAt">-</span></div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <h3>Distribuição por bucket</h3>
+          <ul id="bucketList"></ul>
+        </div>
+        <div>
+          <h3>Segmentação por região</h3>
+          <ul id="regionList"></ul>
+        </div>
+      </div>
+
+      <h3>Registos recentes</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Fonte</th><th>Região</th><th>Área</th><th>Valor</th><th>Bucket</th><th>Hora</th>
+          </tr>
+        </thead>
+        <tbody id="recentBody"></tbody>
+      </table>
+    </section>
+
+    <section class="card hidden" id="historyCard">
+      <h2>Histórico e Rastreabilidade</h2>
+      <button id="loadHistoryBtn">Carregar histórico</button>
+      <ul id="historyList"></ul>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
